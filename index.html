@@ -1,11 +1,11 @@
 ---
-title:my blog
+title: My Blog
 ---
 
-{{page.title}}
+{{ page.title }}
 
-{% for post in site.posts  %}
+{% for post in site.posts %}
 
-{{ post.date|date_to_string  }} <a href='{{site.baseurl}}{{post.url}}'>{{post.title}}</a>
+{{ post.date|date_to_string }} <a href='{{ site.baseurl }}{{ post.url }}'>{{ post.title }}</a>
 
-{% endfor  %}
+{% endfor %}
