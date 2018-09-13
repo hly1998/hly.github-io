@@ -1,0 +1,38 @@
+<div class="header-wrapper">
+    <header>
+        <!-- logo and description -->
+        {% if page.layout != "post" %}
+        <div class="head-area">
+            <h1 class="site-logo">
+                <a href="/"><img src="/assets/img/tutu.png" class="logo"/></a>
+            </h1>
+            <h3 class="site-description">{{ site.description }}</h3>
+        </div>
+        {% endif %}
+        <nav class="site-nav">
+            <div class="left-nav">
+                <!-- add titles to all buttons -->
+                <div class="ui secondary menu inverted">
+                    <a class="item" href="/">
+                        主页
+                    </a>
+                    <a class="item" href="/about.html">
+                        关于
+                    </a>
+                    <a class="item" href="/archive.html">
+                        笔记
+                    </a>
+                    <div class="right menu">
+                        <a class="item" href="#">
+                            <i class="facebook link icon"></i>
+                        </a>
+                        <a class="item" href="#">
+                            <i class="github link icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-nav"></div>
+        </nav>
+    </header>
+</div>
