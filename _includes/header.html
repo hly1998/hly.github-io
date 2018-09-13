@@ -4,7 +4,7 @@
         {% if page.layout != "post" %}
         <div class="head-area">
             <h1 class="site-logo">
-                <a href="/"><img src="/assets/img/tutu.png" class="logo"/></a>
+                <a href="/"><img src="{{site.baseurl}}/assets/img/tutu.png" class="logo"/></a>
             </h1>
             <h3 class="site-description">{{ site.description }}</h3>
         </div>
@@ -13,13 +13,13 @@
             <div class="left-nav">
                 <!-- add titles to all buttons -->
                 <div class="ui secondary menu inverted">
-                    <a class="item" href="/">
+                    <a class="item" href="{{site.baseurl}}/">
                         主页
                     </a>
-                    <a class="item" href="/about.html">
+                    <a class="item" href="{{site.baseurl}}/about.html">
                         关于
                     </a>
-                    <a class="item" href="/archive.html">
+                    <a class="item" href="{{site.baseurl}}/archive.html">
                         笔记
                     </a>
                     <div class="right menu">
