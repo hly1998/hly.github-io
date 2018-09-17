@@ -7,7 +7,7 @@ title: 笔记
 
     <div class="ui middle aligned selection list">
         <div class="item">
-            <a class="header" href="{{ BASE_PATH }}{{ post.url }}">
+            <a class="header" href="{{ baseurl }}{{ post.url }}">
                 {{ post.title | strip_html | truncatewords: 15 }}
                 <small class="small-date">
                     {{ post.date | date_to_string }}
