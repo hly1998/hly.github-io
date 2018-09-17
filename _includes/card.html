@@ -12,22 +12,9 @@
             {{ post.content | strip_html | truncatewords: 30 }}
         </div>
     </div>
-    <!--
-    <div class="extra content">
-        <i class="comments icon"></i>
-        <a href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}">
-            0 Comments
-        </a>
-        {% if post.author %}
-        <div class="right floated author">
-            <img class="ui avatar image" src="/assets/img/profile.jpg"> {{ post.author }}
-        </div>
-        {% endif %}
-    </div>
-    -->
     {% if post.category %}
     <div class="extra content">
-        分类:&nbsp;&nbsp;&nbsp;{{post.category}}
+        分类:&nbsp;&nbsp;&nbsp; <div class="ui horizontal label">{{post.category}}</div>
     </div>
     {% endif %}
 </div>
