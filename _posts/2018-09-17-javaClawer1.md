@@ -4,8 +4,6 @@ title: Java爬虫入门（一）
 description: "Java爬虫入门"
 modified: 2018-9-17
 tags: [sample post]
-image:
-feature: 
 category:java爬虫
 ---
 
