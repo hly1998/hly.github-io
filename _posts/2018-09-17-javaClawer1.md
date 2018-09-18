@@ -16,7 +16,7 @@ IDE：Eclipse
 ### 简介
 前几天尝试了一下用java爬虫爬取学校网站的照片，觉得挺有趣，在这里分享给大家，并从一个简单的爬虫程序逐渐变成一个复杂的爬虫程序，首先给出初步的结构设计：
 
-![结构设计]()
+![结构设计]({{site.baseurl}}/assets/img/clawer1_1.png)
 
 ### 准备
 对于刚刚接触爬虫的新手来说，先了解几个包是很有必要的
@@ -58,8 +58,30 @@ String href = Element.attr("abs:href");
     HttpClient httpClient = new HttpClient(); 
     httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(5000);  
 ```
-第二步获得GetMethod对象
+第二步获得GetMethod对象，并设置请求超时、请求重试处理
 ```
-  
+    GetMethod getMethod = new GetMethod(url);
+    getMethod.getParams().setParameter(HttpMethodParams.SO_TIMEOUT, 5000);
+    getMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler());
 ```
-第三步获取
+第三步执行请求，然后以字节形式获取网页的内容：
+```
+    byte[] responseBody = getMethod.getResponseBody();
+```
+最后不要忘记释放连接：
+```
+    getMethod.releaseConnection();
+```
+
+3. UniversalDetector
+我们在使用爬虫时往往需要知道一个网页的字符编码，有些网页会在开头说明网页编码，这时我们可以通过正则表达式来获取编码，但有些网页不会说明编码，这是就需要我们自己去试探该网页的编码，mozilla.universalchardet.UniversalDetector包可以帮助我们方便地处理这个问题。使用方法很简单，假设你获得了网页代码的字节串(用上面的方法我们已经获得了)，那么你只需要如下简单的操作：
+```
+    UniversalDetector detector = new UniversalDetector(null);
+    detector.handleData(bytes, 0, bytes.length);
+    detector.dataEnd();
+    String encoding = detector.getDetectedCharset();
+    detector.reset();
+```
+但是我们不能确保每次都能用这个方法能成功获得编码，为了保险起见，还可以在这个方法获取失败时使用正则表达式来获取。
+
+有了这些准备，我们就可以开始编写爬虫啦！我将在下一节介绍一个最简单爬虫的编写。
