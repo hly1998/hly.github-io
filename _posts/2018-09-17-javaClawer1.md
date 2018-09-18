@@ -26,7 +26,7 @@ IDE：Eclipse
 Jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。对于初学爬虫只需要了解一下基本使用方法就可以了,下面简单地举几个例子来介绍一下。
 
 Jsoup.parse()方法是我们会经常用到的方法，它可以从字符串、文件、URL等参数加载html，返回一个Document类型的对象，例如从字符串加载html：
-```ruby
+```
     String html = "<html><head><title>test</title></head>"
     + "<body>body content</body></html>";
     Document document = Jsoup.parse(html);
