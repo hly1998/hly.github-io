@@ -44,13 +44,11 @@ Jsoup.parse()方法是我们会经常用到的方法，它可以从字符串、�
 String href = links.attr("href");  
 ```
 这样就可以获得href中的内容，但是有些网页里面的href给出的路径是相对路径，如果使用相对路径作为链接去爬网页往往会导致访问错误的网址，所以应该这样做
-{% highlight ruby %}
 ```
 Document document = Jsoup.parse(html,your_url); 
 Elements links = document.select("a[href]");
 String href = Element.attr("abs:href"); 
 ```
-{% endhighlight %}
 其中your_url是你设定的绝对路径，例如当your_url=http://https://github.com/hly1998/hly.github-io，获取的链接中href="index"时，Element.attr("abs:href")返回的是"http://https://github.com/hly1998/hly.github-io/index"
 
 使用Jsoup还可以获取例如<img>的标签去获取图片，获取某个包含某种class，id的元素等，如果你想进一步了解可以参考[Jsoup教程](http://www.open-open.com/jsoup/parsing-a-document.htm)
