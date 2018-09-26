@@ -7,15 +7,7 @@ layout: default
     {% assign counter = 0 %}
     {% for post in site.posts %}
         {% assign counter = counter | plus: 1 %}
-        {% if counter == 1 %}
-            <div class="eight wide column">
-                {% include card.html %}
-            </div>
-        {% elsif counter == 2 %}
-            <div class="eight wide column">
-                {% include card.html %}
-            </div>
-        {% elsif counter <= 10 %}
+        {% if counter <= 10 %}
             <div class="four wide column">
                 {% include card.html %}
             </div>

@@ -9,7 +9,7 @@
             </span>
         </div>
         <div class="description">
-            {{ post.content | strip_html | truncatewords: 30 }}
+            总字数:{{ post.content | number_of_words }}
         </div>
     </div>
     {% if post.category %}
